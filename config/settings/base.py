@@ -77,6 +77,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "monthly_salary_calculator.users",
+    "monthly_salary_calculator.employees",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
