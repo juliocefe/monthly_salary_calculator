@@ -12,3 +12,6 @@ class Employee(models.Model):
     role = models.IntegerField(
         "Rol", choices=Role.choices, default=Role.DRIVER
     )
+
+    def __str__(self):
+        return self.name
