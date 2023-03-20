@@ -10,7 +10,7 @@ License: MIT
 
 -   Run:
 
-        $ docker compose -f local.yml up -d
+        docker compose -f local.yml up -d
 
 And that's it :D!
 
