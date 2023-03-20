@@ -15,7 +15,7 @@ urlpatterns = [
     # User management
     path("users/", include("monthly_salary_calculator.users.urls", namespace="users")),
     path("employees/", include("monthly_salary_calculator.employees.urls", namespace="employees")),
-
+    path("movements/", include("monthly_salary_calculator.movements.urls", namespace="movements")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

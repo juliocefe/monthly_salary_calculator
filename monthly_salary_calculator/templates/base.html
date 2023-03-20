@@ -52,6 +52,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'employees:' %}">Empleados</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'movements:' %}">Movimientos</a>
+              </li>
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   <a href="#" class="nav-link">{{ request.user }}</a>

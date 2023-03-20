@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{% block head_title %} Movimientos {% endblock %}{% endblock title %}
+
+{% block content %}
+<h1>Listado de Movimientos</h1>
+
+{% include 'movements/add_form.html' with form=form %}
+<table class="table table-hover">
+  <thead>
+    <th>Empleado</th>
+    <th>Mes</th>
+    <th>Cantidad de entregas</th>
+  </thead>
+  <tbody>
+    {% for movement in movements %}
+    <tr>
+      <td>{{ movement.employee.name }}</td>
+      <td>{{ movement.created_at }}</td>
+      <td>{{ movement.deliveries }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% load crispy_forms_tags %} 
+{% block content %}
+<!-- Button trigger modal -->
+<div class="d-flex flex-row-reverse">
+  <button
+    data-bs-toggle="modal"
+    data-bs-target="#movementsModal"
+    type="button"
+    class="btn btn-success"
+  >
+    Nuevo
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="movementsModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <form class="modal-content" method="post" action=".">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Crear nuevo movimiento
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        {% csrf_token %} 
+        {{ form|crispy }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
