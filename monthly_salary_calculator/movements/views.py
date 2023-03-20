@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import MovementForm, MovementFilterForm
 from .models import Movement
 from .selectors import ReportSelector
 
 
 # Create your views here.
-class MoventsView(View):
+class MoventsView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = MovementForm()
@@ -27,7 +28,7 @@ class MoventsView(View):
         return redirect('movements:')
     
 
-class MovementReport(View):
+class MovementReport(LoginRequiredMixin, View):
     template = "movements/report.html"
     def get(self, request):
         context = {

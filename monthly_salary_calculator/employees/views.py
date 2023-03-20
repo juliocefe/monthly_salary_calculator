@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import EmployeeForm
 from .models import Employee
 
 # Create your views here.
-class EmployeesView(View):
+class EmployeesView(LoginRequiredMixin, View):
 
     def get(self, request):
         context = {
