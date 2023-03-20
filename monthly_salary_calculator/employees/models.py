@@ -1,3 +1,14 @@
 from django.db import models
 
-# Create your models here.
+
+class Employee(models.Model):
+
+    class Role(models.IntegerChoices):
+        DRIVER = 1, "Chofer"
+        LOADER = 2, "Cargador"
+        ASSITANT = 3, "Auxiliar"
+
+    name = models.CharField(max_length=100, unique=True)
+    role = models.IntegerField(
+        "Rol", choices=Role.choices, default=Role.DRIVER
+    )
