@@ -5,9 +5,7 @@
 {% block content %}
 <h1>Listado de Empleados</h1>
 
-<div class="d-flex flex-row-reverse">
-  <button type="button" class="btn btn-success">Agregar</button>
-</div>
+{% include 'employees/add_form.html' with form=form %}
 <table class="table table-hover">
   <thead>
     <th>Nombre</th>
@@ -15,11 +13,13 @@
     <th>Rol</th>
   </thead>
   <tbody>
+    {% for employee in employees %}
     <tr>
-      <td>Gilberto Ramirez</td>
-      <td>0001</td>
-      <td>Chofer</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.id|stringformat:"04d" }}</td>
+      <td>{{ employee.get_role_display }}</td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
 {% endblock %}

@@ -1,0 +1,61 @@
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- Button trigger modal -->
+<div class="d-flex flex-row-reverse">
+  <button
+    data-bs-toggle="modal"
+    data-bs-target="#employeeModal"
+    type="button"
+    class="btn btn-success"
+  >
+    Nuevo
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="employeeModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <form class="modal-content" method="post" action=".">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear nuevo empleado</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+          {% csrf_token %} {{ form.name|as_crispy_field }}
+          <div class="mb-3">
+            <label class="form-label"
+              >Rol*</label
+            >
+            <div>
+              {% for radio in form.role %}
+              <div class="form-check form-check-inline">
+                <label for="{{ radio.id_for_label }}">
+                    {{ radio.choice_label }}
+                    {{ radio.tag }}
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
