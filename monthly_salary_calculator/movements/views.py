@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import View
-from .forms import MovementForm
+from .forms import MovementForm, MovementFilterForm
 from .models import Movement
 
 
@@ -24,3 +24,11 @@ class MoventsView(View):
             messages.success(request, 'Movimiento creado con exito!.')
             # Redirect to the employee list page or some other page
         return redirect('movements:')
+    
+
+def movements_report(request):
+    context = {
+        "form": MovementFilterForm()
+    }
+    return render(request, "movements/report.html", context)
+    

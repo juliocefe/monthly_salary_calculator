@@ -32,7 +32,8 @@
         ></button>
       </div>
       <div class="modal-body">
-          {% csrf_token %} {{ form.name|as_crispy_field }}
+          {% csrf_token %} 
+          {{ form.name|as_crispy_field }}
           <div class="mb-3">
             <label class="form-label"
               >Rol*</label

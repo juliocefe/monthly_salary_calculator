@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {% block head_title %} Movimientos {% endblock %}{% endblock title %}
+{% block content %}
+
+<h1 class="text-center mt-3 mb-5">Reporte de Saldos por Mes</h1>
+
+<form class="row row-cols-lg-auto g-3 align-items-center mb-5">
+  {% csrf_token %}
+  <div class="col-12">{{ form.year|as_crispy_field }}</div>
+
+  <div class="col-12">{{ form.month|as_crispy_field }}</div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+  </div>
+</form>
+
+<div class="d-flex flex-row justify-content-between">
+  <p class="fs-4 text">Horas trabajadas</p>
+  <p class="fs-4 text">784</p>
+</div>
+<br />
+<br />
+<div class="d-flex flex-row justify-content-between border-bottom">
+  <p class="fs-4 text">Pago total por entregas</p>
+  <p class="fs-4 text">$1111</p>
+</div>
+<div class="d-flex flex-row justify-content-between border-bottom">
+  <p class="fs-4 text">Pago total por bonos</p>
+  <p class="fs-4 text">$1111</p>
+</div>
+<div class="d-flex flex-row justify-content-between border-bottom">
+  <p class="fs-4 text">Retenciones</p>
+  <p class="fs-4 text">$1111</p>
+</div>
+<div class="d-flex flex-row justify-content-between border-bottom">
+  <p class="fs-4 text">Vales</p>
+  <p class="fs-4 text">$1111</p>
+</div>
+<div class="d-flex flex-row justify-content-between border-bottom">
+  <p class="fs-4 text">Sueldo total</p>
+  <p class="fs-4 text">$1111</p>
+</div>
+{% endblock %}
