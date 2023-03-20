@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=monthly_salary_calculator
+POSTGRES_USER=pgmxmYatObXBfbFoFYRTfvMEjGytaLoh
+POSTGRES_PASSWORD=N2mEGZYCQxFgcxJCOUC8vGS5LbiTf0oL9CPc2H1hWcFC2JU44u8iciNhsv9Uvtni
