@@ -5,4 +5,6 @@ from monthly_salary_calculator.employees.views import (
 )
 
 app_name = "employees"
-urlpatterns = []
+urlpatterns = [
+    path("", EmployeesView.as_view(), name=""),
+]
