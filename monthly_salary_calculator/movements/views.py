@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.views import View
 from .forms import MovementForm, MovementFilterForm
 from .models import Movement
+from .selectors import ReportSelector
 
 
 # Create your views here.
@@ -26,9 +27,17 @@ class MoventsView(View):
         return redirect('movements:')
     
 
-def movements_report(request):
-    context = {
-        "form": MovementFilterForm()
-    }
-    return render(request, "movements/report.html", context)
-    
+class MovementReport(View):
+    template = "movements/report.html"
+    def get(self, request):
+        context = {
+            "form": MovementFilterForm()
+        }
+        return render(request, self.template, context)
+        
+    def post(self, request):
+        form = MovementFilterForm(request.POST)
+        if form.is_valid():
+            data = ReportSelector(**form.cleaned_data).data
+        context = {"form": form, "data": data}
+        return render(request, self.template, context)

@@ -6,7 +6,7 @@
 
 <h1 class="text-center mt-3 mb-5">Reporte de Saldos por Mes</h1>
 
-<form class="row row-cols-lg-auto g-3 align-items-center mb-5">
+<form action="{% url 'movements:report' %}" method="post" class="row row-cols-lg-auto g-3 align-items-center mb-5">
   {% csrf_token %}
   <div class="col-12">{{ form.year|as_crispy_field }}</div>
 
@@ -18,28 +18,28 @@
 
 <div class="d-flex flex-row justify-content-between">
   <p class="fs-4 text">Horas trabajadas</p>
-  <p class="fs-4 text">784</p>
+  <p class="fs-4 text">{{ data.hours_total }}</p>
 </div>
 <br />
 <br />
 <div class="d-flex flex-row justify-content-between border-bottom">
   <p class="fs-4 text">Pago total por entregas</p>
-  <p class="fs-4 text">$1111</p>
+  <p class="fs-4 text">$ {{ data.deliveries_total }}</p>
 </div>
 <div class="d-flex flex-row justify-content-between border-bottom">
   <p class="fs-4 text">Pago total por bonos</p>
-  <p class="fs-4 text">$1111</p>
+  <p class="fs-4 text">$ {{ data.bonuses_total }}</p>
 </div>
 <div class="d-flex flex-row justify-content-between border-bottom">
   <p class="fs-4 text">Retenciones</p>
-  <p class="fs-4 text">$1111</p>
+  <p class="fs-4 text">$ {{ data.withholdings_total }}</p>
 </div>
 <div class="d-flex flex-row justify-content-between border-bottom">
   <p class="fs-4 text">Vales</p>
-  <p class="fs-4 text">$1111</p>
+  <p class="fs-4 text">$ {{ data.grocery_bouhes }}</p>
 </div>
 <div class="d-flex flex-row justify-content-between border-bottom">
   <p class="fs-4 text">Sueldo total</p>
-  <p class="fs-4 text">$1111</p>
+  <p class="fs-4 text">$ {{ data.total }}</p>
 </div>
 {% endblock %}
