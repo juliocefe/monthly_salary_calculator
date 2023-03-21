@@ -8,9 +8,6 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path("", login_required(TemplateView.as_view(template_name="pages/home.html")), name="home"),
-    path(
-        "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
-    ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
