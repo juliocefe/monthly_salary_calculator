@@ -279,3 +279,7 @@ monthly_salary_calculator/media/
 .env
 .envs/*
 !.envs/.local/
+
+
+# 
+ERD.mdj
