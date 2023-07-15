@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="LVE6I5VI3QopXocTzDqBcaiyNrK2BJEl1Z7yFoHCO6l2tnyQRFbNROpgOWROyWbg",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "192.168.1.200"]
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -56,3 +56,6 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+DATABASES["default"] = env.db("DATABASE_URL")  # noqa F405
+DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
+DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
